@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Politique de Confidentialité | Thibault Merle</title>
+  <meta name="description"
+    content="Politique de confidentialité et de protection des données personnelles du site de Thibault Merle, Talent & Content Manager." />
+  <meta name="robots" content="noindex, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ---- PAGE POLITIQUE DE CONFIDENTIALITÉ (réutilise le style de mentions-legales) ---- */
+    .legal-hero {
+      padding: 160px 0 80px;
+      background: linear-gradient(135deg, var(--navy) 0%, #0a1e4a 60%, #0d2155 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .legal-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 107, 0, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .legal-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .legal-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .legal-breadcrumb a {
+      color: var(--orange);
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .legal-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .legal-breadcrumb span {
+      opacity: 0.5;
+    }
+
+    .legal-page-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .legal-page-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .legal-content {
+      padding: 80px 0 120px;
+      background: var(--navy);
+    }
+
+    .legal-body {
+      max-width: 780px;
+    }
+
+    .legal-section {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .legal-section h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .legal-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      background: var(--orange);
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .legal-section p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 12px;
+    }
+
+    .legal-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .legal-section ul li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .legal-section ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .legal-section a {
+      color: var(--orange);
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .legal-section a:hover {
+      text-decoration: underline;
+    }
+
+    .legal-placeholder {
+      display: inline;
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px dashed rgba(255, 107, 0, 0.4);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.82rem;
+      color: var(--orange);
+      font-style: italic;
+    }
+
+    .legal-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 48px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Thibault<span>Merle.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about" class="nav-link">À propos</a></li>
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="index.html#coaching" class="nav-link">Coaching</a></li>
+        <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+        <li><a href="index.html#contact" class="nav-link cta-nav">Me Contacter</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="legal-hero">
+    <div class="container">
+      <div class="legal-hero-inner">
+        <div class="legal-breadcrumb">
+          <a href="index.html">← Retour à l'accueil</a>
+          <span>/</span>
+          <span>Politique de Confidentialité</span>
+        </div>
+        <h1 class="legal-page-title">Politique de <span class="orange">Confidentialité</span></h1>
+        <p class="legal-page-subtitle">Dernière mise à jour : mars 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTENT ===== -->
+  <section class="legal-content">
+    <div class="container">
+      <div class="legal-body">
+
+        <!-- Section 1 -->
+        <div class="legal-section">
+          <h2>1. Introduction</h2>
+          <p>Dans le cadre de son activité de <strong>Talent &amp; Content Manager</strong>, Thibault Merle accorde une grande importance à la protection de la vie privée et des données personnelles des utilisateurs de son site internet.</p>
+          <p>La présente politique vise à vous informer de la manière dont nous collectons, utilisons et protégeons vos données.</p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="legal-section">
+          <h2>2. Données collectées</h2>
+          <p>Les seules données personnelles que nous collectons sont celles que vous nous communiquez volontairement via le formulaire de contact du site. Cela inclut :</p>
+          <ul>
+            <li>Votre nom et/ou prénom</li>
+            <li>Votre adresse email</li>
+            <li>Le contenu de votre message (besoins, objectifs, liens vers vos réseaux)</li>
+          </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="legal-section">
+          <h2>3. Utilisation des données</h2>
+          <p>Ces données sont collectées dans le but exclusif de :</p>
+          <ul>
+            <li>Vous recontacter suite à votre demande.</li>
+            <li>Établir une proposition commerciale ou un devis d'accompagnement.</li>
+            <li>Échanger autour de vos projets de création de contenu.</li>
+          </ul>
+          <p>Vos données ne sont <strong>jamais vendues, louées ou cédées à des tiers</strong>.</p>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="legal-section">
+          <h2>4. Hébergement et sécurité des données</h2>
+          <p>Le formulaire de contact est géré via les services sécurisés de <strong>Netlify</strong> (l'hébergeur du site). Les données transmises par le formulaire nous sont envoyées directement par email de manière sécurisée.</p>
+          <p>Pour en savoir plus sur la politique de confidentialité de Netlify : <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">www.netlify.com/privacy</a></p>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="legal-section">
+          <h2>5. Durée de conservation</h2>
+          <p>Vos données personnelles sont conservées le temps nécessaire aux finalités pour lesquelles elles ont été collectées, et pour une durée maximale de <strong>3 ans</strong> à compter de notre dernier contact, sauf obligation légale contraire.</p>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="legal-section">
+          <h2>6. Vos droits (RGPD)</h2>
+          <p>Conformément à la réglementation européenne (<strong>RGPD</strong>) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition sur vos données personnelles.</p>
+          <p>Vous pouvez exercer ces droits à tout moment en envoyant un email à : <span class="legal-placeholder">adresse@email.com — à remplir</span></p>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="legal-section">
+          <h2>7. Cookies</h2>
+          <p>Ce site vitrine est conçu pour être respectueux de votre vie privée. Il n'utilise pas de cookies de ciblage publicitaire intrusifs.</p>
+          <p>Seuls des cookies techniques strictement nécessaires au bon fonctionnement de l'hébergement (Netlify) peuvent être déposés.</p>
+        </div>
+
+        <a href="index.html" class="btn btn-outline legal-back-btn">← Retour à l'accueil</a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Thibault<span>Merle.</span></div>
+        <div class="footer-socials">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z" />
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="3" />
+              <path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7" />
+            </svg>
+          </a>
+        </div>
+        <div class="footer-links">
+          <a href="mentions-legales.html">Mentions Légales</a>
+          <span>•</span>
+          <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+        </div>
+        <p class="footer-copy">© 2026 <strong>Thibault Merle</strong>. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

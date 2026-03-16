@@ -4,9 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thibault Merle — Influencer Manager & Monteur Vidéo</title>
+
+  <!-- SEO : Titre & Description -->
+  <title>Thibault Merle | Talent &amp; Content Manager</title>
   <meta name="description"
-    content="Thibault Merle, ton bras droit au quotidien. Influencer Manager & Monteur Vidéo. Reste le créatif, je m'occupe du reste." />
+    content="Thibault Merle, ton bras droit au quotidien. Accompagnement de créateurs, stratégie de contenu, mise en relation avec les marques. Reste le créatif, je m'occupe du reste." />
+
+  <!-- Open Graph (réseaux sociaux : WhatsApp, Discord, LinkedIn...) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Thibault Merle | Talent &amp; Content Manager" />
+  <meta property="og:description"
+    content="Ton bras droit au quotidien. Stratégie de contenu, talent management &amp; montage vidéo pour créateurs ambitieux." />
+  <meta property="og:url" content="https://thibaultmerle.fr" />
+  <!-- Remplace l'URL ci-dessous par le lien de ton image de couverture (1200x630px recommandé) -->
+  <meta property="og:image" content="https://thibaultmerle.fr/og-cover.jpg" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Thibault Merle | Talent &amp; Content Manager" />
+  <meta name="twitter:description"
+    content="Ton bras droit au quotidien. Stratégie de contenu, talent management &amp; montage vidéo pour créateurs ambitieux." />
+  <meta name="twitter:image" content="https://thibaultmerle.fr/og-cover.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -58,7 +78,7 @@
         <div class="hero-img-wrapper">
           <div class="hero-img-blob"></div>
           <div class="hero-avatar-photo">
-            <img src="portrait_1.png" alt="Thibault Merle" class="hero-portrait" />
+            <img src="portrait_1.png" alt="Thibault Merle, Talent & Content Manager" class="hero-portrait" />
           </div>
         </div>
       </div>
@@ -221,7 +241,11 @@
 
       <!-- Content Management -->
       <div class="service-block">
-        <div class="service-big-title">CONTENT MANAGEMENT.</div>
+        <div class="service-category-header">
+          <div class="category-label">Expertise 01</div>
+          <h3 class="category-title">Content Management.</h3>
+          <p class="category-desc">Délègue la gestion de tes réseaux pour te concentrer sur ce que tu aimes : créer.</p>
+        </div>
         <div class="pricing-grid">
           <div class="pricing-card">
             <div class="pricing-icon">👥</div>
@@ -273,7 +297,11 @@
 
       <!-- Talent Management -->
       <div class="service-block">
-        <div class="service-big-title">TALENT MANAGEMENT.</div>
+        <div class="service-category-header">
+          <div class="category-label">Expertise 02</div>
+          <h3 class="category-title">Talent Management.</h3>
+          <p class="category-desc">Optimise ton business et sécurise tes revenus avec une représentation pro.</p>
+        </div>
         <div class="pricing-grid pricing-grid-2">
           <div class="pricing-card">
             <h3>Représentation non exclusive</h3>
@@ -305,12 +333,18 @@
 
       <!-- Montage Vidéo -->
       <div class="service-block">
-        <div class="service-other-grid">
-          <div class="service-other-card">
-            <div class="service-other-icon">🎬</div>
-            <h3>Montage Vidéo</h3>
-            <p>Reels, TikTok, Shorts, Spotlight. Format court &amp; impactant.</p>
-            <a href="#contact" class="btn-small">Sur Devis</a>
+        <div class="service-category-header">
+          <div class="category-label">Expertise 03</div>
+          <h3 class="category-title">Montage Vidéo.</h3>
+        </div>
+        <div class="service-banner">
+          <div class="banner-content">
+            <h4 class="banner-title"><span class="banner-icon">🎬</span> Création de formats courts</h4>
+            <p class="banner-desc">Reels, TikTok, Shorts, Spotlight. Je transforme tes rushs en contenus dynamiques,
+              rythmés et optimisés pour la rétention.</p>
+          </div>
+          <div class="banner-action">
+            <a href="#contact" class="btn btn-primary">Demander un devis</a>
           </div>
         </div>
       </div>
@@ -398,7 +432,8 @@
         <div class="about-right">
           <div class="about-img-wrapper">
             <div class="about-img-decoration"></div>
-            <img src="portrait_1.png" alt="Thibault Merle" class="about-portrait" />
+            <img src="image_work.jpeg" alt="Thibault Merle en coaching, ancien collaborateur d'Inoxtag"
+              class="about-portrait" loading="lazy" />
           </div>
         </div>
       </div>
@@ -410,7 +445,11 @@
     <div class="container">
       <div class="contact-inner">
         <h2 class="section-title center">Parle-moi de ton projet</h2>
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" data-netlify="true" netlify-honeypot="bot-field" name="contact">
+          <!-- Anti-spam Honeypot Netlify (champ caché, ne pas toucher) -->
+          <p style="display:none">
+            <label>Ne remplis pas ce champ si tu es humain : <input name="bot-field" /></label>
+          </p>
           <div class="form-row">
             <div class="form-group">
               <label for="prenom">Prénom</label>
@@ -430,10 +469,9 @@
               <label for="sujet">Sujet</label>
               <select id="sujet" name="sujet" required>
                 <option value="" disabled selected>Selectionner...</option>
-                <option value="content-management">Content Management</option>
-                <option value="talent-management">Talent Management</option>
+                <option value="content-management">Demande de Devis (Influence/Content)</option>
+                <option value="talent-management">Intéressé par le Pack Suivi (5h/10h)</option>
                 <option value="montage">Montage Vidéo</option>
-                <option value="coaching">Coaching / Consulting</option>
                 <option value="autre">Autre</option>
               </select>
             </div>
@@ -441,15 +479,10 @@
               <label for="budget">Budget</label>
               <select id="budget" name="budget" required>
                 <option value="" disabled selected>Selectionner...</option>
-                <option value="consulting-20">Consulting 20 min (25€)</option>
-                <option value="consulting-30">Consulting 30 min (50€)</option>
-                <option value="consulting-60">Consulting 1h (90€)</option>
-                <option value="rookie">Formule Rookie (290€)</option>
-                <option value="supernova">Formule Supernova (690€)</option>
-                <option value="starter">Starter (690€/mois)</option>
-                <option value="avance">Avancé (1 490€/mois)</option>
-                <option value="premium">Premium (2 490€/mois)</option>
-                <option value="sur-devis">Sur devis</option>
+                <option value="consulting-20">Moins de 500€</option>
+                <option value="consulting-30">500€ - 2000€</option>
+                <option value="consulting-60">2000€ - 5000€</option>
+                <option value="rookie">+5000€</option>
               </select>
             </div>
           </div>
@@ -678,20 +711,20 @@
       <div class="footer-inner">
         <div class="footer-logo">Thibault<span>Merle.</span></div>
         <div class="footer-socials">
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+          <a href="https://www.instagram.com/thibault.mrle/" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="2" width="20" height="20" rx="5" />
               <circle cx="12" cy="12" r="4" />
               <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
             </svg>
           </a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
+          <a href="https://www.tiktok.com/@thibault.mrle" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z" />
             </svg>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+          <a href="https://www.linkedin.com/in/thibault-merle/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="2" width="20" height="20" rx="3" />
               <path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7" />
@@ -699,9 +732,9 @@
           </a>
         </div>
         <div class="footer-links">
-          <a href="#">Mentions Légales</a>
+          <a href="mentions-legales.html">Mentions Légales</a>
           <span>•</span>
-          <a href="#">Politiques de Confidentialité</a>
+          <a href="politique-confidentialite.html">Politique de Confidentialité</a>
         </div>
         <p class="footer-copy">© 2026 <strong>Thibault Merle</strong>. Tous droits réservés.</p>
       </div>
