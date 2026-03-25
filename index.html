@@ -70,7 +70,7 @@
           accompagnement humain, fun et léger pour te laisser te concentrer sur ta créativité.
         </p>
         <div class="hero-ctas">
-          <a href="#contact" class="btn btn-primary">Réserver un audit</a>
+          <a href="https://cal.eu/thibaultmerle/decouverte" target="_blank" class="btn btn-primary">Réserver un audit</a>
           <a href="#services" class="btn btn-outline">Voir les offres</a>
         </div>
       </div>
@@ -344,7 +344,7 @@
               rythmés et optimisés pour la rétention.</p>
           </div>
           <div class="banner-action">
-            <a href="#contact" class="btn btn-primary">Demander un devis</a>
+            <a href="https://cal.eu/thibaultmerle/decouverte" target="_blank" class="btn btn-primary">Demander un devis</a>
           </div>
         </div>
       </div>
@@ -392,7 +392,7 @@
           </div>
         </div>
         <div class="coaching-cta">
-          <a href="#contact" class="btn btn-primary">Réserver ma session</a>
+          <a href="https://cal.eu/thibaultmerle/decouverte" target="_blank" class="btn btn-primary">Réserver ma session</a>
         </div>
       </div>
     </div>
@@ -742,6 +742,16 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- Cal floating-popup embed code begins -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
+  Cal("init", "decouverte", {origin:"https://app.cal.eu"});
+
+    Cal.ns.decouverte("floatingButton", {"calLink":"thibaultmerle/decouverte","config":{"layout":"month_view","useSlotsViewOnSmallScreen":"true"},"buttonText":"Réserver un appel","hideButtonIcon":false,"buttonPosition":"bottom-right"});
+    Cal.ns.decouverte("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal floating-popup embed code ends -->
 </body>
 
 </html>
