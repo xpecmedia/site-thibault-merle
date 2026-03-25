@@ -191,4 +191,72 @@ document.querySelectorAll('.faq-category').forEach((el, i) => {
   observer.observe(el);
 });
 
+// ---- Formulaire adaptatif (créateur / marque) ----
+const profilSelect = document.getElementById('profil');
+const sujetSelect  = document.getElementById('sujet');
+
+const sujetOptions = {
+  createur: [
+    { value: '',                   label: 'Selectionner...',                    disabled: true },
+    { value: 'content-management', label: 'Demande de Devis (Influence/Content)' },
+    { value: 'talent-management',  label: 'Intéressé par le Pack Suivi (5h/10h)' },
+    { value: 'montage',            label: 'Montage Vidéo' },
+    { value: 'autre',              label: 'Autre' },
+  ],
+  marque: [
+    { value: '',                       label: 'Selectionner...',            disabled: true },
+    { value: 'recherche-influenceurs', label: 'Recherche d\'influenceurs'  },
+    { value: 'brief-campagne',         label: 'Brief de campagne'          },
+    { value: 'partenariat',            label: 'Partenariat long terme'     },
+    { value: 'autre',                  label: 'Autre'                      },
+  ],
+};
+
+const fieldConfig = {
+  createur: {
+    prenom:  { label: 'Prénom',               placeholder: 'Thibault'   },
+    insta:   { label: 'Insta / TikTok',       placeholder: '@...'       },
+    youtube: { label: 'Lien chaîne YouTube',  placeholder: '@...',         type: 'url'  },
+    message: { placeholder: 'Parle-moi de tes besoins, de tes objectifs sur les réseaux, de tes problématiques ou tes projets. Je reviens vers toi sous 48h !' },
+  },
+  marque: {
+    prenom:  { label: 'Prénom & Nom',         placeholder: 'Jean Dupont'         },
+    insta:   { label: 'Nom de la marque',     placeholder: 'Nike, L\'Oréal...'   },
+    youtube: { label: 'Site web (optionnel)', placeholder: 'https://votresite.com', type: 'url' },
+    message: { placeholder: 'Décrivez votre marque, votre cible, le type de collaboration recherché et vos objectifs. Je reviens vers toi sous 48h !' },
+  },
+};
+
+if (profilSelect && sujetSelect) {
+  profilSelect.addEventListener('change', () => {
+    const profil = profilSelect.value;
+    const config = fieldConfig[profil];
+    if (!config) return;
+
+    // Labels & placeholders
+    document.querySelector('label[for="prenom"]').textContent  = config.prenom.label;
+    document.getElementById('prenom').placeholder              = config.prenom.placeholder;
+
+    document.querySelector('label[for="insta"]').textContent   = config.insta.label;
+    document.getElementById('insta').placeholder               = config.insta.placeholder;
+
+    const youtubeInput = document.getElementById('youtube');
+    document.querySelector('label[for="youtube"]').textContent = config.youtube.label;
+    youtubeInput.placeholder                                   = config.youtube.placeholder;
+    youtubeInput.type                                          = config.youtube.type;
+
+    document.getElementById('message').placeholder = config.message.placeholder;
+
+    // Options du sujet
+    sujetSelect.innerHTML = '';
+    sujetOptions[profil].forEach(opt => {
+      const el = document.createElement('option');
+      el.value       = opt.value;
+      el.textContent = opt.label;
+      if (opt.disabled) { el.disabled = true; el.selected = true; }
+      sujetSelect.appendChild(el);
+    });
+  });
+}
+
 console.log('🚀 ThibaultMerle.fr — Site chargé avec succès !');
