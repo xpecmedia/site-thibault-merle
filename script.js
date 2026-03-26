@@ -70,13 +70,13 @@ const titleObserver = new IntersectionObserver((entries) => {
 
 sectionTitles.forEach(el => titleObserver.observe(el));
 
-// ---- Contact Form (fake submit) ----
+// ---- Contact Form (Vercel API) ----
 const contactForm = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const formSuccess = document.getElementById('formSuccess');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btnText = submitBtn.querySelector('.btn-text');
     const btnSending = submitBtn.querySelector('.btn-sending');
@@ -84,12 +84,34 @@ if (contactForm) {
     btnText.style.display = 'none';
     btnSending.style.display = 'inline';
 
-    // Simulate send (replace with real API call — e.g. Formspree, EmailJS)
-    setTimeout(() => {
-      submitBtn.style.display = 'none';
-      formSuccess.style.display = 'block';
-      contactForm.reset();
-    }, 1800);
+    try {
+      const formData = new FormData(contactForm);
+      const body = Object.fromEntries(formData.entries());
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        submitBtn.style.display = 'none';
+        formSuccess.style.display = 'block';
+        contactForm.reset();
+      } else {
+        btnText.style.display = 'inline';
+        btnSending.style.display = 'none';
+        submitBtn.disabled = false;
+        alert('Une erreur est survenue. Réessaie ou contacte-moi directement par email.');
+      }
+    } catch {
+      btnText.style.display = 'inline';
+      btnSending.style.display = 'none';
+      submitBtn.disabled = false;
+      alert('Une erreur est survenue. Vérifie ta connexion et réessaie.');
+    }
   });
 }
 
@@ -215,13 +237,13 @@ const fieldConfig = {
   createur: {
     prenom:  { label: 'Prénom',               placeholder: 'Thibault'   },
     insta:   { label: 'Insta / TikTok',       placeholder: '@...'       },
-    youtube: { label: 'Lien chaîne YouTube',  placeholder: '@...',         type: 'url'  },
+    youtube: { label: 'Youtube (si tu es présent.e dessus)',  placeholder: '@...',  type: 'url'  },
     message: { placeholder: 'Parle-moi de tes besoins, de tes objectifs sur les réseaux, de tes problématiques ou tes projets. Je reviens vers toi sous 48h !' },
   },
   marque: {
     prenom:  { label: 'Prénom & Nom',         placeholder: 'Jean Dupont'         },
     insta:   { label: 'Nom de la marque',     placeholder: 'Nike, L\'Oréal...'   },
-    youtube: { label: 'Site web (optionnel)', placeholder: 'https://votresite.com', type: 'url' },
+    youtube: { label: 'Youtube (si tu es présent.e dessus)', placeholder: '@...', type: 'url' },
     message: { placeholder: 'Décrivez votre marque, votre cible, le type de collaboration recherché et vos objectifs. Je reviens vers toi sous 48h !' },
   },
 };
