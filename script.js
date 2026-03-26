@@ -204,11 +204,10 @@ const sujetOptions = {
     { value: 'autre',              label: 'Autre' },
   ],
   marque: [
-    { value: '',                       label: 'Selectionner...',            disabled: true },
-    { value: 'recherche-influenceurs', label: 'Recherche d\'influenceurs'  },
-    { value: 'brief-campagne',         label: 'Brief de campagne'          },
-    { value: 'partenariat',            label: 'Partenariat long terme'     },
-    { value: 'autre',                  label: 'Autre'                      },
+    { value: '',               label: 'Selectionner...',             disabled: true },
+    { value: 'collaboration',  label: 'Collaborer avec un créateur'              },
+    { value: 'brief-campagne', label: 'Brief de campagne'                         },
+    { value: 'autre',          label: 'Autre'                                     },
   ],
 };
 
@@ -246,6 +245,15 @@ if (profilSelect && sujetSelect) {
     youtubeInput.type                                          = config.youtube.type;
 
     document.getElementById('message').placeholder = config.message.placeholder;
+
+    // Champ poste (marque uniquement)
+    document.getElementById('poste-group').style.display = profil === 'marque' ? 'block' : 'none';
+
+    // Champ budget (créateur uniquement)
+    const budgetGroup = document.getElementById('budget-group');
+    const budgetSelect = document.getElementById('budget');
+    budgetGroup.style.display = profil === 'marque' ? 'none' : 'block';
+    budgetSelect.required = profil !== 'marque';
 
     // Options du sujet
     sujetSelect.innerHTML = '';
