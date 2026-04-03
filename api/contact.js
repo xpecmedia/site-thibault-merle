@@ -9,6 +9,11 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Champs requis manquants' });
   }
 
+  if (!process.env.WEB3FORMS_ACCESS_KEY) {
+    console.error('WEB3FORMS_ACCESS_KEY manquant');
+    return res.status(500).json({ error: 'Configuration manquante' });
+  }
+
   let corps = `Profil : ${profil}\n`;
   corps += `Prénom / Nom : ${prenom}\n`;
 
@@ -25,23 +30,37 @@ export default async function handler(req, res) {
   corps += `Sujet : ${sujet}\n\n`;
   corps += `Message :\n${message}`;
 
-  const response = await fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      access_key: process.env.WEB3FORMS_ACCESS_KEY,
-      subject: `Nouveau message de ${prenom} via le site`,
-      from_name: prenom,
-      message: corps
-    })
-  });
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: process.env.WEB3FORMS_ACCESS_KEY,
+        subject: `Nouveau message de ${prenom} via le site`,
+        from_name: prenom,
+        message: corps
+      })
+    });
 
-  const result = await response.json();
+    const text = await response.text();
+    console.log('Web3Forms response:', response.status, text);
 
-  if (result.success) {
-    return res.status(200).json({ success: true });
-  } else {
-    console.error('Web3Forms error:', JSON.stringify(result));
-    return res.status(500).json({ error: 'Échec de l\'envoi' });
+    let result;
+    try {
+      result = JSON.parse(text);
+    } catch {
+      console.error('Web3Forms réponse non-JSON:', text);
+      return res.status(500).json({ error: 'Réponse invalide de Web3Forms' });
+    }
+
+    if (result.success) {
+      return res.status(200).json({ success: true });
+    } else {
+      console.error('Web3Forms echec:', JSON.stringify(result));
+      return res.status(500).json({ error: 'Échec de l\'envoi' });
+    }
+  } catch (err) {
+    console.error('Erreur réseau:', err.message);
+    return res.status(500).json({ error: 'Erreur réseau' });
   }
 }
