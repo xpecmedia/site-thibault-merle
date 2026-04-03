@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({
       from: 'Site Web <onboarding@resend.dev>',
-      to: 'thibaultmerle@outlook.com',
+      to: 'thibault.merle@outlook.com',
       subject: `Nouveau message de ${prenom} via le site`,
       text: corps
     })
