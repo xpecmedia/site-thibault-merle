@@ -42,8 +42,8 @@ export default async function handler(req, res) {
   if (response.ok) {
     return res.status(200).json({ success: true });
   } else {
-    const error = await response.json();
-    console.error('Resend error:', error);
-    return res.status(500).json({ error: 'Échec de l\'envoi' });
+    const errorText = await response.text();
+    console.error('Resend error HTTP', response.status, ':', errorText);
+    return res.status(500).json({ error: 'Échec de l\'envoi', detail: errorText });
   }
 }
