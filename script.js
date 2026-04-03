@@ -86,7 +86,7 @@ if (contactForm) {
 
     try {
       const formData = new FormData(contactForm);
-      formData.append('access_key', 'e2258613-6495-43bf-a966-f76504c38348');
+      formData.append('access_key', 'cbad6296-8c6a-4579-ae03-34e7d481011d');
       formData.append('subject', `Nouveau message de ${formData.get('prenom') || 'Inconnu'} via thibaultmerle.fr`);
 
       const response = await fetch('https://api.web3forms.com/submit', {
