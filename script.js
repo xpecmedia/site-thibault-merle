@@ -70,7 +70,7 @@ const titleObserver = new IntersectionObserver((entries) => {
 
 sectionTitles.forEach(el => titleObserver.observe(el));
 
-// ---- Contact Form (Vercel API) ----
+// ---- Contact Form (Web3Forms) ----
 const contactForm = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const formSuccess = document.getElementById('formSuccess');
@@ -86,21 +86,22 @@ if (contactForm) {
 
     try {
       const formData = new FormData(contactForm);
-      const body = Object.fromEntries(formData.entries());
+      formData.append('access_key', 'e2258613-6495-43bf-a966-f76504c38348');
+      formData.append('subject', `Nouveau message de ${formData.get('prenom') || 'Inconnu'} via thibaultmerle.fr`);
 
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
+        body: formData
       });
 
       const data = await response.json();
 
-      if (response.ok && data.success) {
+      if (data.success) {
         submitBtn.style.display = 'none';
         formSuccess.style.display = 'block';
         contactForm.reset();
       } else {
+        console.error('Web3Forms:', data);
         btnText.style.display = 'inline';
         btnSending.style.display = 'none';
         submitBtn.disabled = false;
