@@ -9,11 +9,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Champs requis manquants' });
   }
 
-  if (!process.env.WEB3FORMS_ACCESS_KEY) {
-    console.error('WEB3FORMS_ACCESS_KEY manquant');
-    return res.status(500).json({ error: 'Configuration manquante' });
-  }
-
   let corps = `Profil : ${profil}\n`;
   corps += `Prénom / Nom : ${prenom}\n`;
 
@@ -35,7 +30,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        access_key: process.env.WEB3FORMS_ACCESS_KEY,
+        access_key: 'cbad6296-8c6a-4579-ae03-34e7d481011d',
         subject: `Nouveau message de ${prenom} via le site`,
         from_name: prenom,
         message: corps
