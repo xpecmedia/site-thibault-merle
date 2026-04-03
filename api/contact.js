@@ -25,25 +25,23 @@ export default async function handler(req, res) {
   corps += `Sujet : ${sujet}\n\n`;
   corps += `Message :\n${message}`;
 
-  const response = await fetch('https://api.resend.com/emails', {
+  const response = await fetch('https://api.web3forms.com/submit', {
     method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-      'Content-Type': 'application/json'
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      from: 'Site Web <onboarding@resend.dev>',
-      to: 'thibault.merle@outlook.com',
+      access_key: process.env.WEB3FORMS_ACCESS_KEY,
       subject: `Nouveau message de ${prenom} via le site`,
-      text: corps
+      from_name: prenom,
+      message: corps
     })
   });
 
-  if (response.ok) {
+  const result = await response.json();
+
+  if (result.success) {
     return res.status(200).json({ success: true });
   } else {
-    const errorText = await response.text();
-    console.error('Resend error HTTP', response.status, ':', errorText);
-    return res.status(500).json({ error: 'Échec de l\'envoi', detail: errorText });
+    console.error('Web3Forms error:', JSON.stringify(result));
+    return res.status(500).json({ error: 'Échec de l\'envoi' });
   }
 }
